@@ -1,0 +1,23 @@
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "parking-management-syste-74e6e",
+          "appId": "1:1033631701736:android:e96e8cd4480a6bf053875d",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "parking-management-syste-74e6e",
+          "configurations": {
+            "android": "1:1033631701736:android:e96e8cd4480a6bf053875d",
+            "ios": "1:1033631701736:ios:90e77aa116d1887953875d",
+            "macos": "1:1033631701736:ios:90e77aa116d1887953875d"
+          }
+        }
+      }
+    }
+  }
+}
