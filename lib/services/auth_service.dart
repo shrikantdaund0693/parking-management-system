@@ -10,26 +10,24 @@ class AuthService {
     return _auth.authStateChanges();
   }
 
-  Future<User?> signInWithEmail(String email, String password) async {
-    try {
-      UserCredential result = await _auth.signInWithEmailAndPassword(
-          email: email, password: password);
-      return result.user;
-    } catch (e) {
-      print(e.toString());
-      return null;
-    }
+  Future<void> verifyPhoneNumber(
+      String phoneNumber,
+      Function(PhoneAuthCredential) verificationCompleted,
+      Function(FirebaseAuthException) verificationFailed,
+      Function(String, int?) codeSent,
+      Function(String) codeAutoRetrievalTimeout) async {
+    await _auth.verifyPhoneNumber(
+      phoneNumber: phoneNumber,
+      verificationCompleted: verificationCompleted,
+      verificationFailed: verificationFailed,
+      codeSent: codeSent,
+      codeAutoRetrievalTimeout: codeAutoRetrievalTimeout,
+    );
   }
 
-  Future<User?> registerWithEmail(String email, String password) async {
-    try {
-      UserCredential result = await _auth.createUserWithEmailAndPassword(
-          email: email, password: password);
-      return result.user;
-    } catch (e) {
-      print(e.toString());
-      return null;
-    }
+  Future<User?> signInWithCredential(AuthCredential credential) async {
+    UserCredential result = await _auth.signInWithCredential(credential);
+    return result.user;
   }
 
   Future<void> signOut() async {
